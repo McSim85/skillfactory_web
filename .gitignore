@@ -1,0 +1,20 @@
+# OS generated files #
+# ######################
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Vim undo files. Python#
+# #######################
+*.un~
+*.pyc
+*.swp
+.cache/
+
+.mypy_cache/
+*.pkl
+*/AppData/Local*
+__pycache__/
+*.py[cod]
