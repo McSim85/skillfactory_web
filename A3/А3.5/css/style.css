@@ -1,3 +1,28 @@
+/* Regular */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'), url(../fonts/OpenSans-Regular.ttf);
+}
+/* Bold */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(../fonts/OpenSans-Bold.ttf);
+}
+/* ExtraBold */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: local('Open Sans ExtraBold'), local('OpenSans-ExtraBold'), url(../fonts/OpenSans-ExtraBold.ttf);
+}
+
 body {
 	background-color: #F6F2F2;
 	font-family: 'Open Sans', sans-serif;
