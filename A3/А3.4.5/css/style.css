@@ -1,0 +1,81 @@
+body {
+	background-color: #F6F2F2;
+}
+
+a {
+	text-decoration: none;
+}
+
+.main {
+	max-width: 1249px;
+	padding-top: 31px;
+	margin: 0 auto;	
+}
+
+.menu-wrapper {
+	background-color: #000;
+	height: 89px;
+	margin-bottom: 88px; /*571 - 372 - 111*/
+	display: block;
+	text-align: center;
+}
+
+.menu {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.active, .menu a:hover {
+	background-color: #FF3F40;
+}
+
+.menu a {
+	color: #E0E0E0;
+	display: inline-block;
+	height: 89px;
+	text-transform: uppercase;
+	line-height: 89px; 
+	padding: 0px 25px; 
+}
+
+.first-floor  {
+	position: relative;
+}
+
+.first-floor p {
+	line-height: 28px;
+}
+
+.first-floor h1 {
+	font-size: 60px;
+	line-height: 72px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.txt, .pict {
+	position: absolute;
+	width: 50%;
+}
+
+.pict {
+	right: 0px;
+	text-align: right;
+}
+
+.txt {
+	left: 0px;
+}
+
+.button {
+	background-color: #FF2D2D;
+	width: 230px;
+	height: 58px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 18px;
+	color: rgb(255,255,255);
+	display: block;
+	line-height: 58px;
+}
+
