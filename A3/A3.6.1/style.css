@@ -1,0 +1,22 @@
+﻿h2 {
+    margin: 0;
+}
+
+.gallery {
+	box-shadow: 5px 5px 10px grey;
+    padding: 20px;
+    margin-bottom: 20px;
+	display: flex;
+}
+
+.gallery:nth-of-type(odd) {
+    flex-direction: row-reverse;
+}
+
+.gallery:nth-of-type(even) {
+    flex-direction: row;
+}
+
+.gallery > img {
+    width: 100px;
+}
