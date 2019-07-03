@@ -1,0 +1,120 @@
+/* Regular */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'), url(../fonts/OpenSans-Regular.ttf);
+}
+/* Bold */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(../fonts/OpenSans-Bold.ttf);
+}
+/* ExtraBold */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: local('Open Sans ExtraBold'), local('OpenSans-ExtraBold'), url(../fonts/OpenSans-ExtraBold.ttf);
+}
+
+/* Open Sans используется для всех элементов, поэтому подключил его к body */
+body {
+	background-color: #F6F2F2;
+	font-family: 'Open Sans', sans-serif;
+}
+
+a {
+	text-decoration: none;
+}
+
+.main {
+	max-width: 1249px;
+	padding-top: 31px;
+	margin: 0 auto;	
+}
+
+.menu-wrapper {
+	background-color: #000;
+	margin-bottom: 88px; 
+}
+
+.menu {
+	display: flex;
+    align-items: stretch;
+	padding-left: 356px;
+}
+
+.active, .menu a:hover {
+	background-color: #FF3F40;
+}
+
+.menu a {
+	color: #E0E0E0;
+	/*display: inline-block;
+	height: 89px;*/
+	text-transform: uppercase;
+	font-weight: bold;
+	line-height: 89px; 
+	font-size: 14px;
+	padding: 0px 25px; 
+	margin-right: 9px;
+}
+
+.first-floor  {
+	position: relative;
+}
+
+.first-floor p {
+	line-height: 28px;
+}
+
+.first-floor h1 {
+	font-size: 60px;
+	line-height: 74px;
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin: 2px 0 0
+}
+
+.txt, .pict {
+	position: absolute;
+	width: 50%;
+}
+
+.pict {
+	right: 0px;
+	text-align: right;
+	margin-top: 14px;
+}
+
+.pict img{
+	box-shadow: 10px grey;
+	width: 554px;
+	height: auto;
+}
+
+/*.txt {
+	left: 0px;
+}*/
+
+.button {
+	background-color: #FF2D2D;
+	width: 230px;
+	height: 58px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 18px;
+	color: rgb(255,255,255);
+	display: block;
+	line-height: 58px;
+	margin-top: 51px;
+	border-radius: 5px;
+}
+

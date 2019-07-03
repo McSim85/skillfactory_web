@@ -6,11 +6,17 @@
 	box-shadow: 5px 5px 10px grey;
     padding: 20px;
     margin-bottom: 20px;
+	min-height: 300px;
 	display: flex;
+    align-items: center; 
 }
 
-.gallery:nth-child(-n+3) {
-    flex-direction: row-reverse;
+.gallery  > img:nth-of-type(-n+3) { 
+    align-self: flex-start; 
+}
+
+.gallery  > img:nth-of-type(n+7) { 
+    align-self: flex-end; 
 }
 /*
 .gallery:nth-of-type(even) {
