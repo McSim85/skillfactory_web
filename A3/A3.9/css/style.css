@@ -83,6 +83,10 @@ a {
 	margin: 2px 0 0
 }
 
+.first-floor .short {
+	letter-spacing: 6px;
+}
+	
 .txt, .pict {
 	position: absolute;
 	width: 50%;
