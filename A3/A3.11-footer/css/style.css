@@ -97,7 +97,7 @@ a {
 }
 
 .pict img{
-	box-shadow: 10px grey;
+	box-shadow: 0 0 30px grey;
 	width: 554px;
 	height: auto;
 }
@@ -116,3 +116,32 @@ a {
 	border-radius: 5px;
 }
 
+footer {
+	position: absolute; 
+	bottom: 0;
+	height: 113px;
+	background: #313030;
+	width: 1249px;
+	display: flex;
+	align-items: stretch;
+}
+
+.foot-wrapper {
+	width: 100%;
+	display: flex;
+	padding: 0 171px;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.foot-wrapper img {
+	width: 33px;
+	height: auto;
+	margin: 0 9px;
+}
+
+.foot-wrapper p {
+	font-size: 16px;
+	line-height: 26px;
+	color: #B8B8B8;
+}

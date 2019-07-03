@@ -47,7 +47,7 @@ a {
 .menu {
 	display: flex;
     align-items: stretch;
-	padding-left: 356px;
+	justify-content: center;
 }
 
 .active, .menu a:hover {
@@ -61,7 +61,6 @@ a {
 	line-height: 89px; 
 	font-size: 14px;
 	padding: 0px 25px; 
-	margin-right: 9px;
 }
 
 .first-floor  {
@@ -78,13 +77,9 @@ a {
 	font-weight: 800;
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	margin: 2px 0 0
+	margin: 0;
 }
 
-.first-floor .short {
-	letter-spacing: 6px;
-}
-	
 .txt, .pict {
 	position: absolute;
 	width: 50%;
@@ -93,11 +88,10 @@ a {
 .pict {
 	right: 0px;
 	text-align: right;
-	margin-top: 14px;
 }
 
 .pict img{
-	box-shadow: 10px grey;
+	box-shadow: 10px 10px 10px grey;
 	width: 554px;
 	height: auto;
 }
@@ -116,3 +110,7 @@ a {
 	border-radius: 5px;
 }
 
+footer {
+	position: absolute; 
+	bottom: 0;
+}
