@@ -129,7 +129,7 @@ footer {
 .foot-wrapper {
 	width: 100%;
 	display: flex;
-	padding: 0 171px;
+	padding: 40px 171px 0 171px;
 	align-items: center;
 	justify-content: space-between;
 }
