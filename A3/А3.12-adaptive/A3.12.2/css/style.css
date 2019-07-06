@@ -23,7 +23,7 @@
   src: local('Open Sans ExtraBold'), local('OpenSans-ExtraBold'), url(../fonts/OpenSans-ExtraBold.ttf);
 }
 
-/* Open Sans используется для всех элементов, поэтому подключил его к body */
+/* Open Sans РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ РІСЃРµС… СЌР»РµРјРµРЅС‚РѕРІ, РїРѕСЌС‚РѕРјСѓ РїРѕРґРєР»СЋС‡РёР» РµРіРѕ Рє body */
 body {
 	background-color: #F6F2F2;
 	font-family: 'Open Sans', sans-serif;
