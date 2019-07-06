@@ -1,0 +1,151 @@
+/* Regular */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'), url(../fonts/OpenSans-Regular.ttf);
+}
+/* Bold */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(../fonts/OpenSans-Bold.ttf);
+}
+/* ExtraBold */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: local('Open Sans ExtraBold'), local('OpenSans-ExtraBold'), url(../fonts/OpenSans-ExtraBold.ttf);
+}
+
+/* Open Sans используется для всех элементов, поэтому подключил его к body */
+body {
+	background-color: #F6F2F2;
+	font-family: 'Open Sans', sans-serif;
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+.main {
+	width: 80vw;
+	padding-top: 31px;
+	margin: 0 auto;	
+}
+
+.menu-wrapper {
+	background-color: #000;
+	margin-bottom: 88px; 
+}
+
+.menu {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.active, .menu a:hover {
+	background-color: #FF3F40;
+}
+
+.menu a {
+	color: #E0E0E0;
+	text-transform: uppercase;
+	font-weight: bold;
+	line-height: 89px; 
+	font-size: 14px;
+	padding: 0px 25px; 
+}
+
+.first-floor  {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	flex-wrap: wrap;
+}
+
+.first-floor p {
+	line-height: 28px;
+}
+
+.first-floor h1 {
+	font-size: 60px;
+	line-height: 74px;
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin: 2px 0 0
+}
+
+.first-floor .short {
+	letter-spacing: 6px;
+}
+	
+.txt {
+	width: 49%;
+	min-width: 350px;
+}
+
+/*.pict {
+	right: 0px;
+	text-align: right;
+	margin-top: 14px;
+}*/
+
+.pict img{
+	box-shadow: 0 0 30px grey;
+	width: 554px;
+	height: auto;
+}
+
+.button {
+	background-color: #FF2D2D;
+	width: 230px;
+	height: 58px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 18px;
+	color: rgb(255,255,255);
+	display: block;
+	line-height: 58px;
+	margin-top: 51px;
+	border-radius: 5px;
+}
+
+footer {
+	position: absolute; 
+	bottom: 0;
+	min-height: 113px;
+	background: #313030;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.foot-wrapper {
+	width: 80vw;
+	padding-top: 40px;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap-reverse;
+}
+
+.foot-wrapper img {
+	width: 33px;
+	height: auto;
+	margin: 0 9px;
+}
+
+.foot-wrapper p {
+	font-size: 16px;
+	line-height: 26px;
+	color: #B8B8B8;
+}
