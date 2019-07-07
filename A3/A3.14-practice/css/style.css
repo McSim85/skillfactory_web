@@ -23,7 +23,7 @@
   src: local('Open Sans ExtraBold'), local('OpenSans-ExtraBold'), url(../fonts/OpenSans-ExtraBold.ttf);
 }
 
-/* Open Sans èñïîëüçóåòñÿ äëÿ âñåõ ýëåìåíòîâ, ïîýòîìó ïîäêëþ÷èë åãî ê body */
+/* Open Sans Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÑ‚ÑÑ Ð´Ð»Ñ Ð²ÑÐµÑ… ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð², Ð¿Ð¾ÑÑ‚Ð¾Ð¼Ñƒ Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡Ð¸Ð» ÐµÐ³Ð¾ Ðº body */
 body {
 	/*background-color: #F2F2F2;*/
 	font-family: 'Open Sans', sans-serif;
@@ -41,11 +41,26 @@ main{
 	background-color: #FFF;
 	display: flex;
 	flex-direction: column;
-	margin: 0 auto;
 }
 
 a {
 	text-decoration: none;
+}
+
+h1, h2, h3, h4 {
+	text-transform: uppercase;
+	font-weight: bold;
+
+}
+
+h2 {
+	font-size: 42px;
+	line-height: 55px;
+	margin: 0;
+}
+
+p {
+	line-height: 28px;
 }
 
 .header-wrapper,
@@ -55,6 +70,14 @@ a {
 .contacts-wrapper {
 	width: 80vw;
 	min-width: 350px;
+	margin: 0 auto;
+}
+
+.service,
+.features,
+.members {
+	padding-top: 100px;
+	padding-bottom: 100px;
 }
 
 .header-wrapper {
@@ -74,7 +97,7 @@ a {
 	flex-wrap: wrap;
 }
 
-.active, .menu a:hover {
+.menu .active, .menu a:hover {
 	background-color: #FF3F40;
 }
 
@@ -94,26 +117,23 @@ a {
 	flex-wrap: wrap;
 }
 
-.first-floor p {
+/*.first-floor p {
 	line-height: 28px;
-}
+}*/
 
 .first-floor h1 {
 	font-size: 60px;
 	line-height: 74px;
 	font-weight: 800;
-	text-transform: uppercase;
+	/*text-transform: uppercase;*/
 	letter-spacing: 1px;
 	margin: 2px 0 0
 }
-
-.first-floor .short {
-	letter-spacing: 6px;
-}
 	
-.txt {
-	width: 49%;
-	/* min-width: 350px; */
+.left {
+	width: 47%;
+	/* padding-right: 80px;*/
+	min-width: 350px; 
 }
 
 .pict img{
@@ -134,16 +154,142 @@ a {
 	display: block;
 	line-height: 58px;
 	margin-top: 51px;
+	margin-bottom: 51px;
 	border-radius: 5px;
 }
 
 .service {
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.service a {
+	border: 2px solid #FF0000;
+	box-sizing: border-box;
+	background-color: white;
+	color: #FF2D2D;
+}
+
+.list-services {
+	width: 47%;
+	min-width: 350px;
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}
+
+.list-services>div{
+	max-width: 44%;
+	margin: 1vw 0 0 2vw;
+}
+
+.list-services p {
+	margin: 0;
+}
+
+.list-services h4 {
+	text-transform: none;
+}
+
+.service-hr {
+	/*width: 80vw;*/
+	color: #ECECEC;
+	margin: 0;
+}
+
+.features {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding-bottom: 20px;
+}
+
+.features p {
+	max-width: 50%;
+	text-align: center;
+}
+
+.features-hr,
+.members-hr,
+.contacts-hr {
+	width: 134px;
+	min-height: 5px;
+	color: #FF2D2D;
+	background-color: #FF2D2D;
+	border:0px none;
+}
+
+.members-hr {
+	margin-left: 0;
+	margin-top: 21px;
+}
+
+.menu-content {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin: 86px 0 58px 0;
+}
+
+.menu-content a {
+	color: #000;
+	text-transform: uppercase;
+	font-weight: 600;
+	line-height: 24px; 
+	font-size: 22px;
+	padding-right: 29px; 
+}
+
+.menu-content a.active,
+.menu-content a:hover {
+	color: #FF3F40;
+}
+
+.products {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.products>div{
+	min-width: 301px;
+	min-height: 293px;
+	background-color: #5281FF;
+	margin: 0 17px 17px 0;
+}
+
+.persons {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin-top: 67px;
+}
+
+.persons .selected {
+	width: 324px;
+	height: 460px;
+	background-color: #FF3F40;
+	/*margin-right: 72px;*/
+}
+
+.everybody {
+	display: flex;
+	flex-direction: column;
+	align-items: end;
+	max-width: 67%;
+}
+
+.persons .selected-short-info {
+	max-width: 60%;
 }
 
 .subscription {
 	background-color: #2D2D2D;
+}
+
+.contacts {
+	display: block;
 }
 
 footer {
@@ -170,8 +316,9 @@ footer {
 
 .foot-wrapper p {
 	font-size: 16px;
-	line-height: 26px;
+	/*line-height: 28px;*/
 	color: #B8B8B8;
+	margin-top: 0;
 }
 
 @media screen and (max-width: 600px) {
@@ -191,10 +338,24 @@ footer {
 
 @media screen and (max-width: 1400px) {
     .pict img{
-		margin-top: 10px;
 		margin-left: 0;
 	}
+	
 	.first-floor  {
 		flex-direction: column;
 	}
+	
+	.list-services {
+		flex-direction: column;
+	}
+	
+	.list-services>div{
+		max-width: 100%;
+	}
+	
+	.left {
+		max-width: 100%;
+	}
+	
+	
 }
