@@ -61,6 +61,11 @@ h2 {
 
 p {
 	line-height: 28px;
+	font-size: 16px;
+}
+
+ul {
+	list-style-type: none;
 }
 
 .header-wrapper,
@@ -276,7 +281,7 @@ p {
 .everybody {
 	display: flex;
 	flex-direction: column;
-	align-items: end;
+	justify-content: space-between;
 	max-width: 67%;
 }
 
@@ -284,8 +289,72 @@ p {
 	max-width: 60%;
 }
 
+.selected-short-info>h3{
+	font-weight: 600;
+	font-size: 30px;
+}
+
+.selected-short-info>ul{
+	display: flex;
+	padding-left: 0;
+	margin-top: 30px;
+}
+
+.selected-short-info>ul>li{
+	min-width: 112px;
+	font-style: italic;
+	font-size: 18px;
+	line-height: 24px;
+	letter-spacing: 0.9px;
+}
+
+.others {
+	display: flex;
+}
+
+.others>div {
+	min-width: 199px;
+	min-height: 217px;
+	margin-right: 17px;
+	background-color: #FF3F40;
+	position: relative;
+}
+.others .name{
+	visibility: hidden;
+	width: 100%;
+	min-height: 40px;
+	background-color: #000;
+	opacity: 0.5;
+	position: absolute;
+	bottom: 0;
+	color: #fff;
+	font-weight: 600;
+	font-size: 18px;
+	text-transform: uppercase;
+	line-height: 0px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.others .name p{
+	margin: 0;
+	letter-spacing: 0.165159px;
+}
+
+.others>div:hover .name{
+	visibility: visible;
+}
+
 .subscription {
 	background-color: #2D2D2D;
+	min-height: 516px;
+	
+}
+.subscription-wrapper {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 }
 
 .contacts {
@@ -299,7 +368,6 @@ footer {
 	display: flex;
 	justify-content: center;
 }
-
 
 .foot-wrapper {
 	padding-top: 40px;
@@ -316,7 +384,6 @@ footer {
 
 .foot-wrapper p {
 	font-size: 16px;
-	/*line-height: 28px;*/
 	color: #B8B8B8;
 	margin-top: 0;
 }
@@ -331,7 +398,6 @@ footer {
 	.menu a {
 		width: 100%;
 		line-height: 60px;
-		/*padding: 0px auto; */
 	}
 	
 }
