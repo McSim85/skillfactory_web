@@ -80,7 +80,8 @@ ul {
 
 .service,
 .features,
-.members {
+.members,
+.contacts {
 	padding-top: 100px;
 	padding-bottom: 100px;
 }
@@ -198,7 +199,6 @@ ul {
 }
 
 .service-hr {
-	/*width: 80vw;*/
 	color: #ECECEC;
 	margin: 0;
 }
@@ -225,7 +225,7 @@ ul {
 	border:0px none;
 }
 
-.members-hr {
+.members-hr, .contacts-hr {
 	margin-left: 0;
 	margin-top: 21px;
 }
@@ -349,7 +349,8 @@ ul {
 .subscription {
 	background-color: #2D2D2D;
 	min-height: 516px;
-	
+	display: flex;
+	align-items: center;
 }
 .subscription-wrapper {
 	display: flex;
@@ -357,8 +358,123 @@ ul {
 	flex-direction: column;
 }
 
+.subscription-wrapper h3, .subscription-wrapper p {
+	color: #FFF;
+	margin: 0;
+}
+
+.subscription-wrapper h3 {
+	color: #FFF;
+	font-weight: bold;
+	font-size: 42px;
+	text-transform: initial;
+}
+
+.subscription-wrapper .email-wrapper {
+	max-width: 760px;
+	margin-top: 57px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.subscription-wrapper .email-wrapper>div {
+	background-color: #FFF;
+	width: 524px;
+	height: 82px;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: start;
+}
+
+.subscription-wrapper .email-wrapper>div p {
+	color: #2C2C2C;
+	margin-left: 38px;
+}
+
+.subscription-wrapper .email-wrapper .button {
+	width: 217px;
+	height: 82px;
+	margin: 0 0 0 19px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: uppercase;
+}
+
+
 .contacts {
-	display: block;
+	display: flex;
+	flex-direction: column;
+}
+
+.contacts-wrapper .left p {
+	padding-bottom: 42px;
+	padding-top: 30px;
+}
+
+.contacts .contacts-form-wrap {
+	margin-top: 65px;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	padding-left: 9.5vw;
+}
+
+.contacts .contacts-form-wrap  .cont-form {
+	display: flex;
+	flex-direction: column;
+}
+
+.contacts .contacts-form-wrap  .cont-form  .form-name{
+	display: flex;
+	justify-content: space-between;
+}
+
+.contacts .contacts-form-wrap  .cont-form  .form-name div,
+.contacts .contacts-form-wrap  .cont-form  .form-msg {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	background-color: #e5e5e5;
+	border-radius: 5px;
+}
+
+.contacts .contacts-form-wrap  .cont-form  .form-name div {
+	min-height: 71px;
+	min-width: 342px;
+}
+
+.contacts .contacts-form-wrap  .cont-form  .form-msg {
+	min-height: 252px;
+	min-width: 734px;
+}
+.contacts .contacts-form-wrap  .cont-form>div{
+	margin-bottom: 45px;
+}
+
+.contacts .contacts-form-wrap  .cont-form  p {
+	color: #000;
+	margin-left: 53px;
+}
+
+.contacts .contacts-form-wrap  .cont-form .button {
+	width: 731px;
+	height: 75px;
+	line-height: 75px;
+	margin: 0;
+	text-transform: uppercase;
+}
+
+.contacts-form-wrap  .cont-info{
+	background-color: #2D2D2D;
+	color: white;
+	min-width: 580px;
+}
+
+.contacts-form-wrap  .cont-info div{
+	margin: 141px 81px;
 }
 
 footer {
