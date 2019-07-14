@@ -456,6 +456,7 @@ input, button, fieldset {
 .contacts .contacts-form-wrap  .cont-form  .form-msg {
 	min-height: 252px;
 	min-width: 734px;
+	padding-bottom: 130px;
 }
 
 .contacts .contacts-form-wrap  .cont-form>form>fieldset {

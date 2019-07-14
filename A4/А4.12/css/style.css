@@ -1,0 +1,54 @@
+﻿h1, h2 { background-color: yellow;
+	
+}
+
+.about-heading {
+    color: rgb(240, 17, 17);
+}
+
+.wrap {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    background-color: rgb(235, 194, 61);
+}
+    
+.box {
+    right: 0;
+    /* top: 20%;*/
+	position: absolute;
+    bottom: 0;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(240, 56, 10);
+}    
+
+.be-af::after {
+	content: '\263B';
+}
+ 
+ .be-af::before {
+	content: '\263B';
+}
+
+.site-menu {
+list-style: none;
+}
+
+.site-menu li::before {
+content: '-';
+padding-right: 10px;
+}
+
+
+.popup {
+	width: 500px;
+	height: 500px;
+	background-color: rgb(231, 96, 18);
+	display: none;
+}
+
+.visible {
+	display: block;
+}
+

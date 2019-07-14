@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Not first Web page</title>
+	<link rel="stylesheet" href="css/style.css">
+	<!-- <style> -->
+	<!-- table tr:nth-of-type(2n) { -->
+	<!-- background-color: rgb(146, 252, 194); -->
+	<!-- } -->
+	<!-- </style> -->
+	<!-- <style> -->
+	<!-- .items2 tbody tr:nth-of-type(2n) { -->
+<!-- background-color: rgb(146, 252, 194); -->
+<!-- } -->
+	<!-- </style> -->
+		<style>
+	.items3 {
+border-collapse: collapse;
+}
+tr:nth-child(2n) {
+background-color: rgb(146,252,194);
+}
+	</style>
+</head>
+<body>
+	<!-- All text in English -->
+	<header>
+		<h1>Menu</h1>
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="pages/about.html">About</a></li>
+			<li><a href="pages/contacts.html">Contacts</a></li>
+		</ul>
+	</header>
+    <main>
+		<h1>Not first Web page</h1>
+		<h2 class="about-heading">About me</h2>
+		<p>My name is Max. I am working as an engineer. I want to learn more python.</p>
+		<p>I live in Jamayka. <br>I like to ride <strong>horse</strong>.</p>
+		<h2>What I want to learn.</h2>
+		<p>Under these learning <em>I want to learn python</em>.</p>
+		<h3 class="be-af">Test ::before ::after</h3>
+		<h3 class="be-af2">Test image ::before ::after</h3>
+		<ul class="site-menu">
+			<li><a href="">Главная</a></li>
+			<li><a href="">Услуги</a></li>
+			<li><a href="">Портфолио</a></li>
+			<li><a href="">О нас</a></li>
+			<li><a href="">Контакты</a></li>
+		</ul>
+		<!-- добавлен атрибут target="_blank", чтобы результаты формы открывались в новой вкладке -->
+		<form action="#" method="GET">
+			<!-- <label for="search">Поиск через Гугл: </label>
+			<input type="search" id="search" name="q" placeholder="Введите поисковый запрос">
+			<input type="search" id="search" name="q" placeholder="Введите поисковый запрос">
+			<button type="submit"  class="popup-button">Отправить</button>-->
+			<button class="popup-button">Отправить</button>
+			<div class="popup"></div>
+		</form>
+   
+		<table>
+    <thead>
+		<tr>
+			<th>Название элемента</th>
+			<th>Описание</th>
+		</tr>    
+    </thead>
+    <tbody>
+        <tr>
+            <td>table</td>
+            <td>Таблица</td>
+        </tr>
+        <tr>
+            <td>tr</td>
+            <td>Ряд (table row)</td>
+        </tr>
+        <tr>
+            <td>td</td>
+            <td>Ячейка (table data)</td>
+        </tr>
+        <tr>
+            <td>th</td>
+            <td>Заголовочная ячейка (table header)</td>
+        </tr>
+        <tr>
+            <td>thead</td>
+            <td>Шапка таблицы</td>
+        </tr>
+        <tr>
+            <td>empty</td>
+            <td>Строка просто для теста</td>
+        </tr>
+    </tbody>
+</table>
+<hr>
+<table class="items2">
+<thead>
+<tr> 
+<th>Элемент</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>table</td>
+<td>Таблица</td>
+</tr>
+<tr>
+<td>tr</td>
+<td>Ряд</td>
+</tr>
+<tr>
+<td>td</td>
+<td>Ячейка</td>
+</tr>
+<tr>
+<td>th</td>
+<td>Заголовочная ячейка</td>
+</tr>
+<tr>
+<td>thead</td>
+<td>Шапка таблицы</td>
+</tr>
+<tr>
+<td>tbody</td>
+<td>Тело таблицы</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table class="items3">
+<thead>
+<tr>
+<th>Элемент HTML</th>
+<th>Описание элемента</th> 
+</tr> 
+</thead>
+<tbody>
+<tr>
+<td>table</td>
+<td>Таблица</td> 
+</tr>
+<tr>
+<td>caption</td>
+<td>Заголовок таблицы</td>
+</tr>
+<tr>
+<td>tr</td>
+<td>Ряд</td> 
+</tr>
+<tr>
+<td>td</td>
+<td>Ячейка</td> 
+</tr>
+<tr>
+<td>th</td>
+<td>Заголовочная ячейка</td> 
+</tr>
+<tr>
+<td>thead</td>
+<td>Шапка таблицы</td> 
+</tr>
+<tr>
+<td>tbody</td>
+<td>Тело таблицы</td> 
+</tr>
+<tr>
+<td>tfoot</td>
+<td>Итог таблицы</td>
+</tr>
+<tr>
+<td>colgroup</td>
+<td>Характеристика колонок</td>
+</tr> 
+</tbody>
+</table>
+<div class="wrap">
+  <div class="box"> </div>
+</div>
+	</main>
+    <footer>
+		<span><hr>&copy;&nbsp;Skillfactory max hometask</span>
+	</footer>
+<script>
+	let button = document.querySelector('.popup-button');
+
+	button.addEventListener('click', showPopup);
+ 
+	function showPopup() {
+		document.querySelector('.popup').classList.toggle('visible');
+		console.log('showPopup работает');
+	}
+</script>
+</body>
+</html>
