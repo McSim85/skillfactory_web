@@ -7,7 +7,7 @@ $(document).ready(function() {
 
 		$.getJSON("https://api.myjson.com/bins/jcmhn", function (data) {
 		  console.log(data.text);
-		  data.text.var1 = "123"
+		  //data.text.var1 = "123"
 		  //$(result).attr('var1', grandpa)
 		  $(result).html('<p>' + data.text + '</p>');
 		});
