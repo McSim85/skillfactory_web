@@ -1,0 +1,35 @@
+﻿form {
+ width: 300px;
+ margin: 0 auto;
+ display: flex;
+ align-items: center;
+}
+
+h1 {
+ text-align: center;
+ margin-bottom: 40px;
+ font-size: 24px;
+ text-transform: uppercase;
+}
+
+.container {
+ padding: 40px 0;
+ margin-top: 100px;
+ background: #eee;
+ width: 500px;
+ border-radius: 15px;
+ box-shadow: 0 0 30px 1px rgba(0,0,0,.2);
+}
+
+button {
+ height: 30px;
+ padding: 0 .75rem;
+}
+
+.result {
+ width: 300px;
+ font-size: 12px;
+ text-transform: uppercase;
+ margin: 0 auto;
+ margin-top: 10px;
+}
