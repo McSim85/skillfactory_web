@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <title>Прогрессбар</title>
+  </head>
+
+  <body>
+<!-- 
+
+1. Напишите html код с прогрессбаром, тремя кнопками и пометками: 
+“+1%”, “+3%” и “+7%”
+
+2. Каждая кнопка по нажатию увеличивает значение в прогрессбаре 
+на соответствующее число процентов.
+
+3. После того, как прогрессбару установлено значение, 
+вам не получится просто так получить от него процент загрузки. 
+Поэтому учтите, что вам понадобится дополнительная переменная.
+
+4.Самый простой способ сделать поведение трёх кнопок разным 
+- это написать три чуть-чуть разные функции, 
+увеличивающие значение переменной заполненности на чуть-чуть разное число процентов.
+
+5. Если у вас упорно не получается сделать то, что вы хотите, 
+отмотайте на несколько шагов назад и напишите несколько заглушек, 
+которые просто будут выводить что-то в консоль разработчика в ответ на ваши действия.
+
+-->
+
+      <div class="progress" style="height:25vh">
+        <div class="progress-bar bg-success" id="my-progress-bar1" role="progressbar" style="width: 10%;">
+          <form action="" method="POST">
+            <button id="my-button1" type="button">+1%</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="progress" style="height:25vh">
+        <div class="progress-bar bg-warning" id="my-progress-bar2" role="progressbar" style="width: 20%;">
+          <form action="" method="POST">
+            <button id="my-button2" type="button">+3%</button>
+          </form>  
+        </div>
+      </div>
+
+      <div class="progress" style="height:25vh">
+        <div class="progress-bar bg-danger" id="my-progress-bar3" role="progressbar" style="width: 30%;">
+            <form action="" method="POST">
+              <button id="my-button3" type="button">+7%</button>
+            </form>
+        </div>
+      </div>
+
+
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+
+      <script src="js/script.js"></script>
+
+  </body>
+</html>

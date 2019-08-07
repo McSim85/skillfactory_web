@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+    <title>A6.8 Carousel & ProgressBar</title>
+  </head>
+  <body>
+    <p>#1 Пример карусели с элементами управления </p>
+    
+    <div id="carouselWithIndicators" class="carousel slide" data-ride="carousel">
+      
+      <ol class="carousel-indicators"> 
+        <li data-target="#carouselWithIndicators" data-slide-to="0" class="active"></li> 
+        <li data-target="#carouselWithIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselWithIndicators" data-slide-to="2"></li>
+      </ol>
+
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="./images/pic1.jpg" class="d-block w-100">
+        </div>
+        <div class="carousel-item">
+          <img src="./images/pic2.jpg" class="d-block w-100">
+        </div>
+        <div class="carousel-item">
+          <img src="./images/pic3.jpg" class="d-block w-100">
+        </div>
+      </div>
+
+      <a class="carousel-control-prev" href="#carouselWithIndicators" role="button" data-slide="prev"> 
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+      <a class="carousel-control-next" href="#carouselWithIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </a>
+    </div>
+
+  </div>
+  
+  <p>#2 Пример простого прогресс бара </p>   
+<div class="progress">
+  <div
+    class="progress-bar"
+    role="progressbar" 
+    style="width: 33%">
+  </div>
+</div>
+
+<p>#3 Пример прогресс бара с подписями</p>   
+<div class="progress">
+  <div class="progress-bar bg-success" role="progressbar" style="width:30%">
+    Свобода
+  </div>
+  <div class="progress-bar bg-warning" role="progressbar" style="width:20%">
+    Равенство
+  </div>
+  <div class="progress-bar bg-danger" role="progressbar" style="width:50%">
+    Братство
+  </div>
+</div>
+<p>#4 Пример стилизованного прогресс бара</p>
+<div class="progress" style="height: 1px;">
+<div class="progress-bar" role="progressbar" style="width: 25%;"></div>
+</div>
+
+<p>#5 A6.8.3 Задание на управление прогресс баром</p>
+
+<button type="button" class="btn1 btn-outline-primary btn-sm">Прогресс + 1%</button>
+<button type="button" class="btn3 btn-outline-primary btn-sm">Прогресс + 3%</button>
+<button type="button" class="btn7 btn-outline-primary btn-sm">Прогресс + 7%</button>
+
+<div class="progress">
+  <div
+    id="my-progress-bar"
+    class="progress-bar"
+    role="progressbar" 
+    style="width: 0%">
+  </div>
+</div>
+
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/script-a6.8.js"></script>
+  </body>
+</html>
