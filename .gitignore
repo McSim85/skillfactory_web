@@ -18,3 +18,5 @@ Thumbs.db
 */AppData/Local*
 __pycache__/
 *.py[cod]
+B2/B2.14-log-analyze2/data_3000.json
+B2/B2.14-log-analyze2/data_500.json
