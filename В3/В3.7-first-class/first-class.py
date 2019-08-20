@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import inspect
-
 class NutritionInfo:
     '''Class plased info about proteins, carbs, fats in Instance'''
     def __init__(self, proteins, carbs, fats):
