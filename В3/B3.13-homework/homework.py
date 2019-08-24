@@ -80,6 +80,7 @@ class MyTag:
                 if attrib == 'klass':
                     self.attributes['class'] = ' '.join(value)
                 else:
+                    if '_' in attrib: attrib = attrib.replace('_', "-")
                     self.attributes[attrib] = value
         
     def __enter__(self):
