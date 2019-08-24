@@ -154,6 +154,10 @@ class HTML(MyTag):
         else:
             print('output parameter is not set. Text will be printed on screen')
             print(text)
+
+
+class TopLevelTag:
+    pass
                
 if __name__ == "__main__":    
     # self.text заменен на self.content
