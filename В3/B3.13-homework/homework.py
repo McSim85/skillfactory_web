@@ -159,6 +159,11 @@ class HTML(MyTag):
 class TopLevelTag:
     pass
                
+               
+class Tag:
+    pass
+    
+    
 if __name__ == "__main__":    
     # self.text заменен на self.content
     
