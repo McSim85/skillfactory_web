@@ -21,3 +21,4 @@ __pycache__/
 B2/B2.14-log-analyze2/data_3000.json
 B2/B2.14-log-analyze2/data_500.json
 *.bak
+*.exe
