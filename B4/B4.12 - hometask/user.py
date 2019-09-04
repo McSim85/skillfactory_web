@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-'''
-Задание 1
+'''Задание 1
 Напишите модуль users.py, который регистрирует новых пользователей. Скрипт должен запрашивать следующие данные:
 имя
 фамилию
@@ -10,81 +9,54 @@
 адрес электронной почты
 дату рождения
 рост
-Все данные о пользователях сохраните в таблице user нашей базы данных sochi_athletes.sqlite3.
-
-Задание 2
-Напишите модуль find_athlete.py поиска ближайшего к пользователю атлета. Логика работы модуля такова:
-запросить идентификатор пользователя;
-если пользователь с таким идентификатором существует в таблице user, то вывести на экран двух атлетов: ближайшего по дате рождения к данному пользователю и ближайшего по росту к данному пользователю;
-если пользователя с таким идентификатором нет, вывести соответствующее сообщение.'''
-
-# импортируем модули стандартной библиотеки uuid и datetime
-#import os
-import uuid
-#import time
-import datetime
+Все данные о пользователях сохраните в таблице user нашей базы данных sochi_athletes.sqlite3.'''
 
 # импортируем библиотеку sqlalchemy и некоторые функции из нее 
-import sqlalchemy as sa
+#import sqlalchemy as sa
+import sqlalchemy
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
 
 DB_PATH = "sqlite:///sochi_athletes.sqlite3"
 
-# базовый класс моделей таблиц - WHAAATTT???
+# базовый класс моделей таблиц
 Base_class = declarative_base()
 
 
 class User(Base_class):
     """
     Описывает структуру таблицы user для хранения регистрационных данных пользователей
-    CREATE TABLE athelete(
+    CREATE TABLE user(
     "id" integer primary key autoincrement,
-    "age" integer,
-    "birthdate" text,
+    "first_name" text,
+    "last_name" text,
     "gender" text,
-    "height" real,
-    "name" text,
-    "weight" integer,
-    "gold_medals" integer,
-    "silver_medals" integer,
-    "bronze_medals" integer,
-    "total_medals" integer,
-    "sport" text,
-    "country" text);
+    "email" text,
+    "birthdate" text,
+    "height" real);
     """
 
     # задаем название таблицы
-    __tablename__ = 'athelete'
-    # SET the FIELDS OF TABLE
-    # идентификатор пользователя, первичный ключ
-    # sa - ALIAS for sqlalchemy
+    __tablename__ = 'user'
     # set all column in the table
-    id = sa.Column(sa.Integer, primary_key=True, autoincrement=True)
-    age = sa.Column(sa.Text)
-    birthdate = sa.Column(sa.Text)
-    gender = sa.Column(sa.Text)
-    height = sa.Column(sa.Float)
-    name = sa.Column(sa.Text)
-    weight = sa.Column(sa.Integer)
-    gold_medals = sa.Column(sa.Integer)
-    silver_medals = sa.Column(sa.Integer)
-    bronze_medals = sa.Column(sa.Integer)
-    total_medals = sa.Column(sa.Integer)
-    sport = sa.Column(sa.Text)
-    country = sa.Column(sa.Text)    
-
+    id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True, autoincrement=True)
+    first_name = sqlalchemy.Column(sqlalchemy.Text)
+    last_name = sqlalchemy.Column(sqlalchemy.Text)
+    gender = sqlalchemy.Column(sqlalchemy.Text)
+    email = sqlalchemy.Column(sqlalchemy.Text)
+    birthdate = sqlalchemy.Column(sqlalchemy.Text)
+    height = sqlalchemy.Column(sqlalchemy.REAL)
     
 
 def connect_db(db):
     """
-    Устанавливает соединение к базе данных, создает таблицы, если их еще нет и возвращает объект сессии 
+    Устанавливает соединение к базе данных, (#создает таблицы, если их еще нет) и возвращает объект сессии 
     """
     # создаем соединение к базе данных
-    engine = sa.create_engine(db)
+    engine = sqlalchemy.create_engine(db)
     # создаем описанные таблицы
-    Base_class.metadata.create_all(engine)
+    #Base_class.metadata.create_all(engine)
     # создаем фабрику сессию
     session = sessionmaker(engine)
     # возвращаем сессию
@@ -92,19 +64,30 @@ def connect_db(db):
 
 
 def request_info():
-    '''Requests info from CLI and returns dict()'''
+    '''Requests info from CLI and returns dict()
+    имя
+    фамилию
+    пол
+    адрес электронной почты
+    дату рождения
+    рост'''
     
     print('Please, input user info')
     f_name = input('Input First name: ')
     l_name = input('Input Last name: ')
+    gender = input('Please, input the gender (Male|Female): ')
     email = input('Input email: ')
-    id = str(uuid.uuid4())
+    birthdate = input('Please, input your birthday (Format: YYYY-MM-DD): ')
+    height = input('Please, input your growth (Format: 1.6): ')
     if valid_email(email):
-        one_user = {'id': id,
-                    'first_name': f_name,
-                    "last_name": l_name,
-                    "email": email
+        one_user = {'first_name': f_name,
+                    'last_name': l_name,
+                    'gender': gender,
+                    'email': email,
+                    'birthdate': birthdate,
+                    'height': float(height)
                     }
+#        print(one_user)
         return one_user
     else:
         print('Invalid email, please try again')
@@ -120,25 +103,21 @@ def valid_email(email):
         else: return False
     else: return False
 
-
-def find(session, name):
-    """
-    Производит поиск пользователя в таблице user по заданному имени name
-    """
-    # находим все записи в таблице User, у которых поле User.first_name совпадает с параметром name
-    query = session.query(User).filter(User.first_name == name)
-    # подсчитываем количество таких записей в таблице с помощью метода .count()
-    users_cnt = query.count()
-    # составляем список идентификаторов всех найденных пользователей
-    user_ids = [user.id for user in query.all()]
-    # находим все записи в таблице LastSeenLog, у которых идентификатор совпадает с одним из найденных
-    last_seen_query = session.query(LastSeenLog).filter(LastSeenLog.id.in_(user_ids))
-    # строим словарь вида идентификатор_пользователя: время_его_последней_активности
-    log = {log.id: log.timestamp for log in last_seen_query.all()}
-    # возвращаем кортеж количество_найденных_пользователей, список_идентификаторов, словарь_времени_активности
-    return (users_cnt, user_ids, log)
+def main():
+    '''Main activity of module
+    
+    Without any error-checking :-( '''
+    #Create session object
+    querier = connect_db(DB_PATH)
+    #request info about user
+    a_user = request_info()
+    # add new user to DB and commit
+    querier.add(User(**a_user))
+    querier.commit()
+    for i in querier.query(User).filter(User.first_name==a_user['first_name']).all():
+        print('User /', i.first_name, '/ has successfully added to DB!')
 
 
 if __name__ == "__main__":
-    pass
+    main()
 
