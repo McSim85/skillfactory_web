@@ -8,7 +8,7 @@
 если пользователь с таким идентификатором существует в таблице user, то вывести на экран двух атлетов: ближайшего по дате рождения к данному пользователю и ближайшего по росту к данному пользователю;
 если пользователя с таким идентификатором нет, вывести соответствующее сообщение.'''
 
-from datetime import datetime, date
+import datetime
 
 # импортируем библиотеку sqlalchemy и некоторые функции из нее 
 #import sqlalchemy as sa
@@ -93,64 +93,68 @@ def connect_db(db):
     # создаем соединение к базе данных
     engine = sqlalchemy.create_engine(db)
     # создаем описанные таблицы
+    #Base_class.metadata.create_all(engine)
+    # создаем фабрику сессию
     session = sessionmaker(engine)
     # возвращаем сессию
     return session()
 
-def get_db_info():
-    '''It gets userlist  '''
-
-def user_by_date(user, session):
-    '''It finds user by near date to current user'''
-    final_user_id = None
-    ref_time = date.fromisoformat(user.birthdate)
-    final_date = None
-    user_dates = {}
-    for athelet in session.query(Athelete).all():
-        user_dates[athelet.id] = date.fromisoformat(athelet.birthdate)
+def convert_date(date):
+    """
+    Конвертирует строку с датой в формате ГГГГ-ММ-ЧЧ в объект  datetime.date
+    """
+    date_list = date.split("-")
+    date_int = map(int, date_list)
+    return datetime.date(*date_int)
     
-    for user_id, dates in user_dates.items():
-        # check, that final_date is not None
-        if final_date:
-            # check which timedelta longer between current user and final_date
-            timedelta_btw_final = final_date - dates
-            timedelta_btw_ref = ref_time - dates
-            if timedelta_btw_ref < timedelta_btw_final:
-#                print('here')
-                final_date = dates
-                final_user_id = user_id
-        else:
-            final_date = dates
-            final_user_id = user_id
+def user_by_date(user, session):
+    """
+    Finds athlee by date user
+    """
+    athletes = session.query(Athelete).all()
+    athlete_ids = {}
+    for athlete in athletes:
+        date = convert_date(athlete.birthdate)
+        athlete_ids[athlete.id] = date
+    
+    user_date = convert_date(user.birthdate)
+    min_dist = None
+    athlete_id = None
+    athlete_db = None
 
-    final = session.query(Athelete).filter(Athelete.id==final_user_id).first()
-    return final
+    for id_, db_date in athlete_ids.items():
+        dist = abs(user_date - db_date)
+        if not min_dist or dist < min_dist:
+            min_dist = dist
+            athlete_id = id_
+            athlete_db = db_date
+    
+    return athlete_id, athlete_db
+
 
 def user_by_height(user, session):
-    '''It finds user by near date to current user'''
-    final_user_id = None
-    ref_height = user.height
-    final_height = None
-    user_heights = {}
-    for athelet in session.query(Athelete).filter(Athelete.height!=None).all():
-        user_heights[athelet.id] = athelet.height
-#    print(user_heights)
-    for user_id, height in user_heights.items():
-        # check, that final_date is not None
-        if final_height:
-            # check which delta longer between current user and final_date
-            heightdelta_btw_final = final_height - height
-            heightdelta_btw_ref = ref_height - height
-            if heightdelta_btw_ref < heightdelta_btw_final:
-#                print('here')
-                final_height = height
-                final_user_id = user_id
-        else:
-            final_height = height
-            final_user_id = user_id
+    """
+    Finds athlee by height user
+    """
+    athletes = session.query(Athelete).all()
+    atlhete_id_height = {athlete.id: athlete.height for athlete in athletes}
 
-    final = session.query(Athelete).filter(Athelete.id==final_user_id).first()
-    return final
+    user_height = user.height
+    min_dist = None
+    athlete_id = None
+    athlete_height = None
+
+    for id_, height in atlhete_id_height.items():
+        if height is None:
+            continue
+
+        dist = abs(user_height - height)
+        if not min_dist or dist < min_dist:
+            min_dist = dist
+            athlete_id = id_
+            athlete_height = height
+    
+    return athlete_id, athlete_height
 
 
 def main():
@@ -164,13 +168,18 @@ def main():
     user_present = querier.query(User).filter(User.id==user_id).first()
     if user_present:
         print('User ', user_present.first_name, ' has present in DB. Try to find athelets')
-        close_date_user = user_by_date(user_present, querier)
-        print('Ближайший к данному пользователю: {} по дате рождения: {}'.format(user_present.first_name + user_present.last_name, close_date_user.name))
-        close_height = user_by_height(user_present, querier)
-        print('Ближайший к данному пользователю: {} по росту: {}'.format(user_present.first_name + user_present.last_name, close_height.name))
-      
+        bd_athlete, bd = user_by_date(user_present, querier)
+        height_athlete, height = user_by_height(user_present, querier)
+        print(
+            "Ближайший по дате рождения атлет: {}, его дата рождения: {}".format(bd_athlete, bd)
+        )
+        print(
+            "Ближайший по росту атлет: {}, его рост: {}".format(height_athlete, height)
+        )
     else:
-        print('No such user: ', user_present.first_name)
+        print('No such user')
+        
+#        print('User /', i.first_name, '/ has successfully added to DB!')
 
 
 if __name__ == "__main__":
