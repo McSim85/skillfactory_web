@@ -97,9 +97,6 @@ def connect_db(db):
     # возвращаем сессию
     return session()
 
-def get_db_info():
-    '''It gets userlist  '''
-
 def user_by_date(user, session):
     '''It finds user by near date to current user'''
     final_user_id = None
