@@ -16,7 +16,6 @@
 Чему равна сумма всех четных элементов вашей последовательности?
 '''
 
-#STEP1
 def counter(first, second):
     '''It makes Febonacci sequence from first, second int's.'''
     
