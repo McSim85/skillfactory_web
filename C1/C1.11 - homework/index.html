@@ -1,0 +1,154 @@
+﻿<html>
+<head>
+<style>
+	@import url(https://fonts.googleapis.com/css?family=Red+Hat+Display&display=swap);
+
+	body {
+	  text-align: center;
+	  background-color: rgb(135, 110, 215);
+	  font-family: 'Red Hat Display', sans-serif;
+	  font-weight: 100;
+	}
+
+	p{
+	  margin: 0;
+	}
+	 
+	.countdown-title {
+	  color: rgb(57, 20, 175);
+	  font-weight: 100;
+	  font-size: 40px;
+	  margin: 40px 0px 20px;
+	}
+	 
+	.countdown {
+	  color: #fff;
+	  display: inline-block;
+	  font-weight: 100;
+	  text-align: center;
+	  font-size: 30px;
+	}
+	 
+	.countdown-number {
+	  padding: 10px;
+	  border-radius: 3px;
+	  background-color: rgb(106, 72, 215);
+	  display: inline-block;
+	}
+	 
+	.countdown-time {
+	  padding: 15px;
+	  border-radius: 3px;
+	  background-color: rgb(65, 44, 132);
+	  display: inline-block;
+	}
+	 
+	.countdown-text {
+	  display: block;
+	  padding-top: 5px;
+	  font-size: 16px;
+	}
+
+	.message{
+	  color: rgb(57, 20, 175);
+	  font-weight: 400;
+	  font-size: 28px;
+	}
+
+	button{
+	  margin-top: 30px;
+	  padding: 8px 10px;
+	  border-radius: 5px;
+	  border: 2px solid rgb(65, 44, 132);
+	  background-color: white;
+	}
+</style>
+</head>
+<body>
+<h1 class="countdown-title">Countdown Clock</h1>
+<section class="countdown">
+  <div class="countdown-number">
+    <p class="minutes countdown-time"></p>
+    <p class="countdown-text">Minutes</p>
+  </div>
+  <div class="countdown-number">
+    <p class="seconds countdown-time"></p>
+    <p class="countdown-text">Seconds</p>
+  </div>
+</section>
+
+<div>
+  <button class="plus">plus</button>
+  <button class="minus">minus</button>
+  <button class="start">start</button>
+</div>
+
+<div class="message">
+  
+</div>
+
+
+<script>
+	const timer = document.querySelector('.countdown');
+	const minutes = document.querySelector('.minutes');
+	const seconds = document.querySelector('.seconds');
+	const message = document.querySelector('.message');
+
+	const plus = document.querySelector('.plus');
+	const minus = document.querySelector('.minus');
+	const start = document.querySelector('.start');
+
+	let countSec = 0;
+	let countMin = 0;
+
+	const updateText = () =>{	
+	  minutes.innerHTML = (0 + String(countMin)).slice(-2);
+	  seconds.innerHTML = (0 + String(countSec)).slice(-2);
+	}
+	updateText();
+
+	const countDown = () => {	
+		let total = countSec + countMin * 60;
+	  const timeinterval = setTimeout(countDown, 1000);
+	  if (total <= 0) {
+		clearInterval(timeinterval);
+		timer.style.display = 'none';
+		message.innerHTML = '<p>I am done...</p>'
+	  }
+	  if(countSec > 0) countSec--;
+	  else{
+		countSec = 59;
+		countMin--;
+	  } 
+	  updateText();
+	}
+
+	plus.onclick = () =>{
+	  if(countSec < 59) ++countSec;
+	  else{
+		countSec = 0;
+		++countMin;
+	  }
+	  updateText()
+	}
+
+	minus.onclick = () =>{
+		if(countMin <= 0 && countSec===0){
+		countSec = 0;
+		countMin = 0;
+		return;
+	  }
+	  if(countSec > 0) --countSec;
+	  else{
+		countSec = 59;
+		--countMin;
+	  }
+	  updateText();
+	}
+
+	start.onclick = () => {
+		  countDown();  
+	}
+	</script>
+</body>
+</html>
