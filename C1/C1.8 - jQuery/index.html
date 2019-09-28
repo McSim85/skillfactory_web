@@ -1,0 +1,72 @@
+﻿<html>
+<head>
+<style>
+button{
+  padding: 20px;
+  background: transparent;
+  border: 1px solid blue;
+}
+</style>
+</head>
+<body>
+<button>but 1</button>
+<button>but 2</button>
+<button>but 3</button>
+<button>but 4</button>
+
+<div>
+  <h1>hello</h1>
+</div>
+<script>
+	function jQuery (selector, context = document){
+		this.elements = Array.from(context.querySelectorAll(selector));
+		return this
+	}
+
+	jQuery.prototype.each = function (fn){
+		this.elements.forEach((element, index) => fn.call(element, element, index));
+		return this;
+	}
+
+	jQuery.prototype.click = function(fn){
+		this.each(element => element.addEventListener('click', fn))
+		return this
+	}
+
+	jQuery.prototype.hide = function(){
+		this.each(element => element.style.display = 'none')
+	  return this;
+	}
+
+	jQuery.prototype.show = function(){
+		this.each(element => element.style.display = '')
+	  return this;
+	}
+
+	jQuery.prototype.remove = function(){
+		this.each(element => element.remove())
+	  return this;
+	}
+
+	jQuery.prototype.text = function(){
+		this.each(element => element.innerText = 'New text')
+	  return this;
+	}
+	
+	jQuery.prototype.html = function(){
+		this.each(element => element.innerHTML = '<span>Text in span tag</span>')
+	  return this;
+	}
+	
+	jQuery.prototype.class = function(name){
+		this.each(element => element.className = name)
+	  return this;
+	}
+
+
+	const $ = (e) => new jQuery(e);
+
+	<!-- $('button').hide().show().click(e => console.log(e)).class('name') -->
+	</script>
+</body>
+</html>
