@@ -87,37 +87,26 @@ P.S. Из заготовки можно без зазрения совести �
 </head>
 <body>
 <h1 class="countdown-title">Countdown Clock</h1>
-
-<section class="countdown">
-  <div class="countdown-number">
-	<p class="minutes countdown-time"></p>
-	<p class="countdown-text">Minutes</p>
-  </div>
-  <div class="countdown-number">
-	<p class="seconds countdown-time"></p>
-	<p class="countdown-text">Seconds</p>
-  </div>
-<form name="manual">
-	<br>
-	<div class="countdown-number">
-		<input name="minutes" class="countdown-time" placeholder="Please, input by hand">
+<form>
+	<section class="countdown">
+	  <div class="countdown-number">
+		<input name="minutes" class="minutes countdown-time">
 		<p class="countdown-text">Minutes</p>
-	</div>
-	<div class="countdown-number">
-		<input name="seconds" class="countdown-time" placeholder="Please, input by hand">
+	  </div>
+	  <div class="countdown-number">
+		<input name="seconds" class="seconds countdown-time">
 		<p class="countdown-text">Seconds</p>
-	</div>
-	<br>
-	<input class="confirm" type="button"  value="confirm">
-</form>
-</section>
+	  </div>
 
-<div>
-  <button class="plus">plus</button>
-  <button class="minus">minus</button>
-  <button class="start">start</button>
-  <button class="break">break</button>
-</div>
+	</section>
+
+	<div>
+	  <button class="plus">plus</button>
+	  <button class="minus">minus</button>
+	  <input class="confirm" type="submit" value="confirm">
+	  <button class="start">(re)start</button>
+	</div>
+</form>
 <div class="message">
   
 </div>
@@ -128,32 +117,30 @@ P.S. Из заготовки можно без зазрения совести �
 	const minutes = document.querySelector('.minutes');
 	const seconds = document.querySelector('.seconds');
 	const message = document.querySelector('.message');
-	const manual = document.forms.manual
 
 	const plus = document.querySelector('.plus');
 	const minus = document.querySelector('.minus');
 	const start = document.querySelector('.start');
-	const stop = document.querySelector('.break');
 	const confirm = document.querySelector('.confirm');
 
 	let countSec = 0;
 	let countMin = 0;
-	let countStarted = 0;
 
 	const updateText = () =>{
-		minutes.innerHTML = (0 + String(countMin)).slice(-2);
-		seconds.innerHTML = (0 + String(countSec)).slice(-2);
+		console.log(countMin, countSec)
+		//console.log((0 + String(countSec)).slice(-2))
+		minutes.value = (0 + String(countMin)).slice(-2);
+		seconds.value = (0 + String(countSec)).slice(-2);
 	}
 	
 	updateText();
 
 	const countDown = () => {
-		countStarted = 1;
         let total = countSec + countMin * 60;
         const timeinterval = setTimeout(countDown, 1000);
         if (total <= 0) {
             clearInterval(timeinterval);
-            timer.style.display = 'none';
+            //timer.style.display = 'none';
             message.innerHTML = '<p>I am done...</p>'
         }
         if(countSec > 0) countSec--;
@@ -164,18 +151,8 @@ P.S. Из заготовки можно без зазрения совести �
         updateText();
     }
 	
-	const countStop = () => {
-        if (countStarted === 1) {
-            countSec = 0;
-            countMin = 0;
-			message.innerHTML = '<p>Stop Countdown</p>'
-			updateText();
-        } else {
-			message.innerHTML = '<p>Countdown is not started</p>'
-		}
-    }
-	
 	const check_time = (time) => {
+		console.log(time)
 		if (time < 59 && time >= 0){
 			return time;
 		} else {
@@ -185,12 +162,13 @@ P.S. Из заготовки можно без зазрения совести �
 	}
 	
 	plus.onclick = () =>{
-		//console.log(countMin, countSec)
+		console.log(countMin, countSec)
         if(countSec < 59) ++countSec;
         else{
             countSec = 0;
             ++countMin;
         }
+		console.log(countMin, countSec)
         updateText()
     }
 
@@ -208,19 +186,15 @@ P.S. Из заготовки можно без зазрения совести �
         updateText();
     }
 	
-	stop.onclick = () => {
-        countStop();
-    }
-	
 	confirm.onclick = () => {
-		countSec = check_time(manual.seconds.value)
-		countMin = check_time(manual.minutes.value)
+		countSec = check_time(seconds.value)
+		countMin = check_time(minutes.value)
+		console.log(countMin, countSec)
 		updateText()
     }
 
 	start.onclick = () => {
         countDown();
-		countStarted = 0;
     }
 	</script>
 </body>
