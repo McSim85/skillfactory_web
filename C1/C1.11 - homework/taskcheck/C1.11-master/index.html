@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>C1.11 &mdash; Таймер</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="wrapper">
+		<h1 class="countdown-title">Таймер</h1>
+		<h3 class="countdown-legend">Для установки таймера введите минуты и секунды в соответствующие поля или пользуйтесь кнопками +/-</h3>
+		<section class="countdown">
+		  <div class="countdown-number">
+		    <input class="minutes countdown-time" type="text" name="minutes" placeholder="00" size="3">
+		    <div class="countdown-control">
+			    <button class="minutes-plus">&and;</button>
+			    <button class="minutes-minus">&or;</button>
+			</div>
+		    <p class="countdown-text">Минуты</p>
+		  </div>
+		  <div class="countdown-number">
+		    <input class="seconds countdown-time" type="text" name="seconds" placeholder="00" size="3">		   
+			<div class="countdown-control">
+			    <button class="seconds-plus">&and;</button>
+			    <button class="seconds-minus">&or;</button>
+			</div>	
+		    <p class="countdown-text">Секунды</p>
+		  </div>
+		</section>
+
+		<div class="control">
+		  <button class="start">Старт</button>
+		  <button class="pause">Пауза</button>
+		</div>
+
+		<div class="message">
+		</div>
+
+		<div>
+			<button class="restart">Перезапустить</button>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="js/myquery.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
