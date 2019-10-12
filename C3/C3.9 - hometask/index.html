@@ -1,0 +1,80 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<!-- 
+		Ваш город — Владивосток?
+		Сделайте страницу с одним текстовым полем ввода. В него пользователь 
+		вводит название города (например, "Архангельск"), а результат 
+		сохраняется в cookie. 
+		При последующих входах на страницу вместо 
+		текстового поля ввода отображается соответствующая информация о 
+		пользователе "Ваш город — Архангельск" и дополнительно ссылка, 
+		позволяющая удалить эту информацию (и потом задать новую при 
+		следующем посещении ресурса).
+		-->
+	</head>
+	<body onload="whatToDo()">
+		<div id='form'>
+			<form action="" method="POST" name="getCity" >
+				<input type="text" style="width:300px; " name="city"  placeholder="Please, input city name here">
+				<input id="save" type="submit" value="Save">
+			</form>
+		</div>
+		<div id='info'>
+			<a href='' onclick="ClearCookie();">Clear Cookies</a>
+		</div>	
+	<script>
+	
+		const usedCookieName = 'city'
+		
+		function getCookie(c_name) {
+			let matches = document.cookie.match(new RegExp("(?:^|; )" + c_name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
+			return matches ? decodeURIComponent(matches[1]) : undefined;
+		}
+
+		function setCookie(name, value, age="80") {
+			//console.log('In setCookie')
+			document.cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value) + ';max-age=80';
+			//console.log(document.cookie)
+		}
+		
+		function ClearCookie() {
+			setCookie(usedCookieName, "", "-1");
+		};
+		
+		function showCurrent() {
+			const val = getCookie(usedCookieName);
+			whatCanhge = document.getElementById('info');
+			whatCanhge.innerHTML = `<p>Your city is ${val} <br>	${whatCanhge.innerHTML}</p>`;
+			
+		};
+		
+		function hideElem(form_name) {
+		  document.getElementById(form_name).remove();
+		  //document.body.style.overflowY = '';
+		}
+
+		function whatToDo() {
+			console.log(getCookie(usedCookieName))
+			if (getCookie(usedCookieName)) {
+				console.log( "usedCookieName True" );
+				hideElem('form');
+				showCurrent();
+			} else {
+				console.log( "usedCookieName False" );
+				hideElem('info');
+			};
+		};
+		
+		document.getElementById('save').onclick = function() {
+			//console.log('You press on save');
+			const name = usedCookieName;
+			const value = document.forms.getCity.elements.city.value
+			//console.log(name, value);
+			setCookie(name, value);
+			//console.log(document.cookie)
+		}
+
+	</script>
+	</body>
+</html>
