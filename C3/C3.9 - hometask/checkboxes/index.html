@@ -1,0 +1,99 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<!-- 
+		Галочки предпочтений
+		На странице есть шесть галочек (checkbox) и кнопка "сохранить". 
+		Пользователь при посещении страницы может отметить их как угодно. 
+		Состояние галочек сохранится при последующих заходах на страницу, но 
+		при этом изменить их в последствии нельзя. Назовите галочки на своё 
+		усмотрение или воспользуйтесь следующими вариантами:
+
+		не звонить мне;
+		я прочитал и согласен с правилами пользования сервисом;
+		я не выбираю эту галочку;
+		я подтверждаю, что свобода в интернете — это возможность выбирать галочки;
+		мне больше 12 лет;
+		это задание выполнено правильно;
+
+		-->
+	</head>
+	<body onload="whatToDo()">
+		<div id='form'>
+			<form action="" method="POST" name="setChkboxes" >
+				<input type="checkbox" name="dontCall">не звонить мне;<br>
+				<input type="checkbox" name="rAccept">я прочитал и согласен с правилами пользования сервисом;<br>
+				<input type="checkbox" name="dontCheck">я не выбираю эту галочку;<br>
+				<input type="checkbox" name="freedom">я подтверждаю, что свобода в интернете — это возможность выбирать галочки;<br>
+				<input type="checkbox" name="age" >мне больше 12 лет;<br>
+				<input type="checkbox" name="correct">это задание выполнено правильно;<br>
+				<input id="save" type="submit" value="Save">
+			</form>
+		</div>
+	<script>
+		// document.getElementById("myCheck").disabled = true;
+		const usedCookieName = 'city'
+		const parsedForm = document.forms.setChkboxes
+		const formElem = parsedForm.elements
+		
+		function getCookie(c_name) {
+			let matches = document.cookie.match(new RegExp("(?:^|; )" + c_name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
+			return matches ? decodeURIComponent(matches[1]) : undefined;
+		}
+
+		function setCookie(name, value, age="120") {
+			//console.log('In setCookie')
+			document.cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value) + ';max-age=80';
+			//console.log(document.cookie)
+		}
+		
+		function disableChckbxs(formElements) {
+			console.log(document.cookie)
+			for (let key in formElem) {
+				if (formElem[key].type == 'checkbox') {
+					formElem[key].checked = (getCookie(formElem[key].name) === 'true')
+				};
+				formElem[key].disabled = true;
+			};
+			
+		};
+
+		function whatToDo() {
+			//console.log( "whatToDo" );
+			
+			for (let key in formElem) {
+				if (formElem[key].type == 'checkbox') {
+					let string = document.cookie
+					let substr = formElem[key].name
+					
+					if (string.includes(substr)) {
+						disableChckbxs(formElem);
+					};
+				};
+			};			
+		};
+		
+		document.getElementById('save').onclick = function() {
+			//console.log('You press on save');
+			const name = usedCookieName;
+			
+			for (let key in formElem) {
+				if (formElem[key].type == 'checkbox') {
+					//console.log( formElem[key].name );
+					if (formElem[key].checked) {
+						//console.log('Checked');
+						setCookie(formElem[key].name, "true")
+					} else {
+						//console.log('Not checked');
+						setCookie(formElem[key].name, "false")
+						
+					};
+				};
+			};
+			
+			//console.log(document.cookie)
+		}
+
+	</script>
+	</body>
+</html>
