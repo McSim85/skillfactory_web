@@ -1,6 +1,8 @@
 <!doctype html>
 <html>
 	<head>
+		<meta charset="UTF-8">
+		<title>C3.9 checkboxes</title>
 		<!-- 
 		Галочки предпочтений
 		На странице есть шесть галочек (checkbox) и кнопка "сохранить". 
@@ -17,12 +19,10 @@
 		это задание выполнено правильно;
 
 		-->
-		<meta charset="UTF-8">
-		<title>C3.9 checkboxes</title>
 	</head>
 	<body onload="whatToDo()">
 		<div id='form'>
-			<form action="" method="POST" name="setChkboxes" >
+			<form action="" name="setChkboxes" >
 				<input type="checkbox" name="dontCall">не звонить мне;<br>
 				<input type="checkbox" name="rAccept">я прочитал и согласен с правилами пользования сервисом;<br>
 				<input type="checkbox" name="dontCheck">я не выбираю эту галочку;<br>
@@ -50,7 +50,7 @@
 		}
 		
 		function disableChckbxs(formElements) {
-			console.log(document.cookie)
+			//console.log(document.cookie)
 			for (let key in formElem) {
 				if (formElem[key].type == 'checkbox') {
 					formElem[key].checked = (getCookie(formElem[key].name) === 'true')
