@@ -1,6 +1,8 @@
-﻿<!doctype html>
+<!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="UTF-8">
+		<title>C3.9 City</title>
 		<!-- 
 		Ваш город — Владивосток?
 		Сделайте страницу с одним текстовым полем ввода. В него пользователь 
@@ -57,11 +59,11 @@
 		function whatToDo() {
 			//console.log(getCookie(usedCookieName))
 			if (getCookie(usedCookieName)) {
-				console.log( "usedCookieName True" );
+				//console.log( "usedCookieName True" );
 				hideElem('form');
 				showCurrent();
 			} else {
-				console.log( "usedCookieName False" );
+				//console.log( "usedCookieName False" );
 				hideElem('info');
 			};
 		};
