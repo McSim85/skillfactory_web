@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ПРАКТИКА С3.9</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <section class="container checks mt-2">
+        <div class="d-flex justify-content-center">
+            <div class="input-group my-5">
+                <input id="cityInput" type="text" class="form-control" placeholder="Мой город">
+                <button type="submit" class="btn btn-outline-primary mx-4 submit-btn">Отправить</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="container checks">
+        <div class="d-flex justify-content-center">
+            <h3 class="my-2">Мой статус</h3>
+        </div>
+        <br>
+        <div class="d-flex flex-column">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input check" id="check1">
+                <label class="custom-control-label" for="check1">Не звонить мне - телефон отключен!</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input check" id="check2">
+                <label class="custom-control-label" for="check2">Не писать мне - плохо вижу!</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input check" id="check3">
+                <label class="custom-control-label" for="check3">Не присылать мне подарков - нафиг надо!</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input check" id="check4">
+                <label class="custom-control-label" for="check4">Не замечать меня - видеть Вас не желаю!</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input check" id="check5">
+                <label class="custom-control-label" for="check5">Не пить со мной - нет закуски!</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input check" id="check6">
+                <label class="custom-control-label" for="check6">Не доставать меня - уже достали!</label>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button id="save-btn" type="submit" class="btn btn-outline-primary mx-4 save-btn">Сохранить</button>
+            </div>
+    </section>
+
+    <script type="text/javascript" src="script.js"></script>
+
+</body>
+</html>

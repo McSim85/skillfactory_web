@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Галочки предпочтений</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Выберите ваши предпочтения</legend>
+            <div>
+                <input type="checkbox" id="ch1" value="1">
+                <label for="coding">не звонить мне</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ch2" value="2">
+                <label for="music">я прочитал и согласен с правилами пользования сервисом</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ch3" value="3">
+                <label for="art">я не выбираю эту галочку</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ch4" value="4">
+                <label for="sports">я подтверждаю, что свобода в интернете — это возможность выбирать галочки</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ch5" value="5">
+                <label for="cooking">мне больше 12 лет</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ch6" value="6">
+                <label for="other">это задание выполнено правильно</label>
+            </div>
+            <div>
+                <button type="submit" onclick="localStorage.setItem('visited',true)">Сохранить мой выбор</button>
+                <button onclick="localStorage.removeItem('visited')">Разблокировать</button>
+            </div>
+        </fieldset>
+    </form>
+<script>
+var Checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"]'));
+var visited = localStorage.getItem('visited');
+Checkboxes.forEach(element => {
+    element.checked = localStorage.getItem(element.value) == 'true'
+    element.onchange = function() {
+        localStorage.setItem(element.value,element.checked)
+    };
+    if (visited) {
+        element.disabled = true;
+    }
+});
+
+</script>    
+</body>
+</html>

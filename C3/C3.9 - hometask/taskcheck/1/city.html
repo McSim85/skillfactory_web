@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Ваш город — Владивосток?</title>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js" nonce="C471CCF7CB03D94FABA9D91C62C8F745" charset="UTF-8"></script></head>
+<body>
+    <label for="city" id="lcity">Введите Ваш город:</label>
+    <input type="text" id="city" name="city" required size="20">
+    
+    <br>
+    <button onclick="deleteCookie('city');city.value='';location.reload()">Очистить cookie</button>
+
+<script>
+    function getCookie(name) {
+        let matches = document.cookie.match(new RegExp(
+            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+        ));
+        return matches ? decodeURIComponent(matches[1]) : undefined;
+    }
+    
+    function setCookie(name, value, options = {}) {
+
+        // options = {
+        //     path: '/'};
+        let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+        for (let optionKey in options) {
+            updatedCookie += "; " + optionKey;
+            let optionValue = options[optionKey];
+            if (optionValue !== true) {
+                updatedCookie += "=" + optionValue;
+            }
+        }
+        document.cookie = updatedCookie;
+    }
+
+    function deleteCookie(name) {
+        setCookie(name, "", {'max-age': -1})
+    }
+
+    window.onload = () => {
+        let cook_text = getCookie('city');
+        console.log(cook_text);
+        if (cook_text) {
+            document.getElementById('lcity').innerText = 'Ваш город:';
+            city.value = cook_text;
+            city.disabled = true;
+        }
+        
+    };
+    
+    city.oninput = () => {
+        setCookie('city', city.value, {'max-age': 3600});
+    };
+</script>    
+</body>
+</html>

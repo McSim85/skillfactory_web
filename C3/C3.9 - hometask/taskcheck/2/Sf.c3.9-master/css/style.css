@@ -1,0 +1,25 @@
+body {
+	margin-top: 50px;
+    min-width: 300px;
+}
+
+.input-group {
+    width: 40vw;
+}
+
+.custom-checkbox {
+    margin-left: 18vw;
+}
+
+.checks {
+    background-color: #c0c0c0;
+}
+
+.btn {
+	/*font-weight: bold;*/
+	border-width: 1.5px;
+}
+.save-btn {
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
