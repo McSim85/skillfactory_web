@@ -16,12 +16,17 @@ export default {
       msg: 'Before request',
     };
   },
+  methods: {
+    getMesasge() {
+      axios.get(dataURL)
+        .then((response) => {
+          console.log(response);
+          this.msg = response.data.message;
+        });
+    },
+  },
   created() {
-    axios.get(dataURL)
-      .then((response) => {
-        console.log(response);
-        this.msg = response.data.message;
-      });
+    this.getMesasge();
   },
 };
 </script>
