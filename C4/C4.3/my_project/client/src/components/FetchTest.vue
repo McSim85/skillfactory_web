@@ -7,7 +7,7 @@
 <script>
 import axios from 'axios';
 
-const dataURL = 'https://api.myjson.com/bins/10dxnx';
+const dataURL = 'http://localhost:5000/api/tasks/';
 
 export default {
   name: 'Fetch',
@@ -20,8 +20,7 @@ export default {
     getMesasge() {
       axios.get(dataURL)
         .then((response) => {
-          console.log(response);
-          this.msg = response.data.message;
+          console.table(response.data);
         });
     },
   },
